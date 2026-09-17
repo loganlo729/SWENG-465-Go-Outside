@@ -1,2 +1,2 @@
-# go-outside
+# Go-Outside
 Project for SWENG 465

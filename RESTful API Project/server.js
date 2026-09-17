@@ -9,6 +9,7 @@ app.use(express.json());
 
 // Create basic 
 let events = [];
+let communities = [];
 
 // Define the port the server will listen on
 const PORT = 10533; 
@@ -50,7 +51,7 @@ app.post('/api/communities', (req, res) => {
         	host: host
     	};
 	// Push to array
-	events.push(newCommunity);
+	communities.push(newCommunity);
 
 	// Return status
 	res.status(201).json({

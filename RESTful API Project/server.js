@@ -36,6 +36,29 @@ app.post('/api/events', (req, res) => {
 	});
 });
 
+// GET request for communities
+app.get('/api/communities', (req, res) => {
+	res.send(communities);
+});
+
+// POST request for communities
+app.post('/api/communities', (req, res) => {
+	const {communityName, category, host} = req.body;
+	const newCommunity = {
+        	communityName: communityName,
+        	category: category,
+        	host: host
+    	};
+	// Push to array
+	events.push(newCommunity);
+
+	// Return status
+	res.status(201).json({
+		message: 'Community created successfully',
+		community: newCommunity
+	});
+});
+
 // Tell the server to listen for incoming network requests
 app.listen(PORT, () => {
 	console.log(`Server is running at http://localhost:${PORT}`);

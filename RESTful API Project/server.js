@@ -22,6 +22,11 @@ app.get('/api/events', (req, res) => {
 // POST request for events
 app.post('/api/events', (req, res) => {
 	const {eventName, category, host} = req.body;
+
+	if (!eventName || !category || !host) {
+		return res.status(400).send('Missing required fields.');
+	}
+
 	const newEvent = {
         	eventName: eventName,
         	category: category,
